@@ -1,0 +1,2 @@
+Some python files to simulate the thermodynamic of an appartment and generate data to learn with a deep neural network.
+At the end, this work should operate with the repo Thermostat_server and Thermostat_client to make a smart and connected thermostat to manage the heating system of an appartment.
