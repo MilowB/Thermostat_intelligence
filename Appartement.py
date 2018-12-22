@@ -2,9 +2,10 @@ import random
 
 class Appartement():
 
-    def __init__(self, w, perte):
+    def __init__(self, w, perte, thermostat):
+        self.thermostat = thermostat
         self.upper = False
-        self.temp_int = 20
+        self.temp_int = 15
         self.temp_requise = 21
         #En Watt
         self.watt_chauffage = w
@@ -23,8 +24,10 @@ class Appartement():
             res = self.watt_chauffage - self.perte_isolation
         return res
 
-    def besoinChauffage(self):
+    def besoinChauffage(self, hour):
         res = False
+        self.temp_requise = self.thermostat.getRequireTemp("lundi", hour)
+        #print(self.temp_requise)
         if self.temp_int > self.temp_requise:
             self.upper = True
         if self.temp_int < self.temp_requise and not self.upper:

@@ -1,7 +1,11 @@
 import matplotlib
 import matplotlib.pyplot as plt
 import json
+import sys
 
+sys.path.insert(0, '/home/mickael/Projets/Thermostat/Serveur/')
+
+from Thermostat import *
 from Simulateur import *
 
 def main():
@@ -11,10 +15,11 @@ def main():
     temps = []
     temperature = []
     temperature_ext = []
-    simulateur = Simulateur(4, 4, 2.5, 3000)
+    thermostat = Thermostat()
+    simulateur = Simulateur(4, 4, 2.5, 3000, thermostat)
     cpt = 0
     #240 = 1 jour
-    while cpt < 240 * 360 * 100:
+    while cpt < 220:# * 360 * 100:
         simulateur.updateHeure()
         simulateur.updateTemp()
         simulateur.comportement(cpt)

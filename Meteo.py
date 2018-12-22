@@ -17,4 +17,4 @@ class Meteo():
             self.temp_ext *= (1 + r)
 
     def modifierMeteo(self):
-        self.temp_ext = random.randint(0, 30)
+        self.temp_ext = random.randint(13, 17)

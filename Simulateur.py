@@ -4,10 +4,10 @@ import json
 
 class Simulateur():
 
-    def __init__(self, x, y, z, w):
-        self.heure = 8
+    def __init__(self, x, y, z, w, thermostat):
+        self.heure = 0
         self.meteo = Meteo(self.heure)
-        self.appartement = Appartement(w, 1500)
+        self.appartement = Appartement(w, 250, thermostat)
         self.x = x
         self.y = y
         self.z = z
@@ -62,13 +62,14 @@ class Simulateur():
         return temp + 273.15
 
     def comportement(self, ite):
-        if ite % 240 == 0:
-            self.appartement.modifierTempRequise()
+
+        #if ite % 240 == 0:
+        #    self.appartement.modifierTempRequise()
         if ite % (240 * 7) == 0:
             self.meteo.modifierMeteo()
-        if self.appartement.besoinChauffage():
+        if self.appartement.besoinChauffage(self.heure):
             self.appartement.chauffage_on = True
-        elif not self.appartement.besoinChauffage():
+        elif not self.appartement.besoinChauffage(self.heure):
             self.appartement.chauffage_on = False
 
     def getStat(self):
