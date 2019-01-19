@@ -26,8 +26,7 @@ class Appartement():
 
     def besoinChauffage(self, hour):
         res = False
-        self.temp_requise = self.thermostat.getRequireTemp("lundi", hour)
-        #print(self.temp_requise)
+        self.temp_requise = self.thermostat.getRequireTemp(hour)
         if self.temp_int > self.temp_requise:
             self.upper = True
         if self.temp_int < self.temp_requise and not self.upper:

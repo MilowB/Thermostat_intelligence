@@ -62,7 +62,6 @@ class Simulateur():
         return temp + 273.15
 
     def comportement(self, ite):
-
         #if ite % 240 == 0:
         #    self.appartement.modifierTempRequise()
         if ite % (240 * 7) == 0:
